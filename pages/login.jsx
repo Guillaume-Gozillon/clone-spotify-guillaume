@@ -2,6 +2,7 @@ import React from 'react'
 import { getProviders, signIn } from 'next-auth/react'
 
 function Login({ providers }) {
+  console.log(providers)
   return (
     <div className='flex flex-col items-center bg-black min-h-screen w-full justify-center'>
       <img
