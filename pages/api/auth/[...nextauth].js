@@ -17,11 +17,11 @@ async function refreshAccessToken(token) {
       accessTokenExpires: Date.now() + refreshedToken.expires_in * 1000,
       refreshToken: refresh_token ?? token.refreshAccessToken
     }
-  } catch (err) {
-    console.error(err)
+  } catch (error) {
+    console.error(error)
     return {
       ...token,
-      error: 'refreshTokenAccess'
+      error: 'refreshAccessTokenError'
     }
   }
 }
@@ -51,7 +51,7 @@ export default NextAuth({
         }
       }
 
-      if (Date.now() < accessTokenExpires) {
+      if (Date.now() < token.accessTokenExpires) {
         console.log('VALIDE')
         return token
       }
